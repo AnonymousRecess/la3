@@ -37,7 +37,7 @@ meetCollect([B|Tail],ASlot,Slot) :-
     meetCheck(ASlot,BSlot,Slot0),
     meetCollect(Tail,Slot0,Slot).
 
-meetTImes([A|Tail], Slot) :-
+meetTimes([A|Tail], Slot) :-
     free(A,ASlot),
     meetCollect(Tail,ASlot,Slot).
 
