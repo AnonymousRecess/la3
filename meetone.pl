@@ -4,25 +4,26 @@
 
 % Your code goes here.
 
-free(Person,slot(time(hour1,min1,id1), time(hour2,min1,id2))).
+free(Person,slot(time(hour1,min1,id1),time(hour2,min1,id2))).
 
 lte(time(_,_,am), time(_,_,pm)).
 
 lte(time(Hour1,_,ID),time(Hour2, _,ID)) :-
-Hour1<Hour2.
+		Hour1<Hour2.
 
 lte(time(Hour,Min1,ID), time(Hour, Min2, ID)) :-
-Min1=<Min2.
+		Min1=<Min2.
 
 
-meetone(Person,slot(TimeSeg1, TimeSeg2)) :- 
+meetone(Person,slot(Start, Finish)) :- 
 		free(Person,slot(TimeSeg1,TimeSeg2)),
-		lte(TimeSeg1,TimeSeg2), lte(TimeSeg1, TimeSeg2).
+		lte(TimeSeg1,Start), lte(Finish, TimeSeg2).
 
 
 
 main :- findall(Person,
-		meetone(Person,slot(time(8,30,am),time(8,45,am))), People),
+		meetone(Person,slot(time(8,30,am),time(8,45,am))),
+		People),
 		write(People), nl, halt.
 
 :- initialization(main).
