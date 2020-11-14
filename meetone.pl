@@ -16,7 +16,8 @@ lte(time(Hour,Min1,ID), time(Hour, Min2, ID)) :-
 
 meetone(Person,slot(Start, Finish)) :- 
 		free(Person,slot(TimeSeg1,TimeSeg2)), % Check for free time
-		lte(TimeSeg1,Start), lte(Finish, TimeSeg2).  % Check for overlap
+		lte(TimeSeg1,Start), 
+		lte(Finish, TimeSeg2).  % Check for overlap
 
 
 
