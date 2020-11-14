@@ -6,10 +6,10 @@
 
 lte(time(_,_, am), time(_,_, pm)).
 
-lte(time(Hour1,_,_), time(Hour2, _,_)),
+lte(time(Hour1,_,_), time(Hour2, _,_)) :-
 Hour1 < Hour2.
 
-lte(time(_,Min1,_), time(_, Min2, _)),
+lte(time(_,Min1,_), time(_, Min2, _)) :-
 Min1 =< Min2.
 
 
