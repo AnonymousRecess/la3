@@ -1,7 +1,7 @@
 #!/bin/gprolog --consult-file
 
 :- include('data.pl').
-:- include("uniq.pl").
+:- include('uniq.pl').
 
 free(Person,slot(time(hour1,min1,id1),time(hour2,min1,id2))). % Check for Person with Hour, Minute and Miday
 
