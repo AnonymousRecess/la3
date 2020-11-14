@@ -22,7 +22,7 @@ compareNext([], FreeTime, FreeTime). % list with free times
 compareNext([H|Tail], FirstFreeTime, FreeTime) :- % args are FreeTimes
         free(H, SecondFreeTime), % Next person's free time
         overlap(FirstFreeTime,SecondFreeTime, CurrentSlot), % check if free times have overlap
-        compareNext(Tail, CurrentSlot, FreeTime) % Pass rest of the list with recursion
+        compareNext(Tail, CurrentSlot, FreeTime). % Pass rest of the list with recursion
 
 
 getFreeTimes([|H| Tail], FreeTime) :-
