@@ -25,7 +25,7 @@ compareNext([H|Tail], FirstFreeTime, FreeTime) :- % args are FreeTimes
         compareNext(Tail, CurrentSlot, FreeTime). % Pass rest of the list with recursion
 
 
-getFreeTimes([|H| Tail], FreeTime) :-
+getFreeTimes([H|Tail], FreeTime) :-
         free(H, FirstFreeTime),
         compareNext(Tail, FirstFreeTime, FreeTime).
 
