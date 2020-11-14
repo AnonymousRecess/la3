@@ -2,10 +2,10 @@
 
 free(Person,slot(time(hour1,min1,id1),time(hour2,min1,id2))).
 
-lte(time(_,_,am), time(_,_,pm)).
+lte(time(_,_,am), time(_,_,pm)). % can be am or pm
 
 
-lte(time(Hour1,_,ID),time(Hour2, _,ID)) :-
+lte(time(Hour1,_,ID),time(Hour2,_,ID)) :-
 		Hour1<Hour2.	% Ensure that Hour1 is less than Hour2
 
 
@@ -38,7 +38,8 @@ collection(FreeTime) :-
 people([ann, bob, dave]).
 
 
-main :- findall(FreeTime, collection(FreeTime), FreeTimes),
+main :- findall(FreeTime, 
+        collection(FreeTime), FreeTimes),
         uniq(FreeTimes, Uniq),
         write(Uniq), nl, halt.        
 
