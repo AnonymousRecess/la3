@@ -21,7 +21,6 @@ match(slot(ABegin,AEnd),slot(BBegin,BEnd),slot(BBegin,BEnd)) :-
 match(slot(ABegin,AEnd),slot(BBegin,BEnd),slot(BBegin,BEnd)) :-
     lte(ABegin,BBegin),
     lte(BBegin,AEnd),
-    lte(AEnd,BEnd),
     BBegin\==AEnd.
 
 meetCheck(ASlot,BSlot,SharedSlot) :-
