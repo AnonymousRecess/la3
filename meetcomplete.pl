@@ -27,7 +27,7 @@ compareNext([H|Tail], FirstFreeTime, FreeTime) :- % args are FreeTimes
 
 getFreeTimes([|H| Tail], FreeTime) :-
         free(H, FirstFreeTime),
-        compareNext(Tail, FirstFreeTime, FreeTime)
+        compareNext(Tail, FirstFreeTime, FreeTime).
 
 
 collection(FreeTime) :-
