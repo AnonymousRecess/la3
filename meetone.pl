@@ -4,7 +4,7 @@
 
 % Your code goes here.
 
-free(Person,slot(time(_,_,_), time(_,_,_)))
+free(Person,slot(time(_,_,_), time(_,_,_))).
 
 lte(time(_,_, am), time(_,_, pm)).
 
