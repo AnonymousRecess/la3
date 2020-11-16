@@ -13,25 +13,28 @@ lte(time(Hour,Min1,ID), time(Hour, Min2, ID)) :-
 		Min1=<Min2.    % Ensure that Min1 is less than or equal to Min2
 
 
-overlap(slot(FirstStart,FirstEnd),slot(SecondStart,SecondEnd),slot(CurrentStart,CurrentEnd)) :-
+overlap(slot(FirstStart,FirstEnd),slot(SecondStart,SecondEnd),slot(CurrentStart,CurrentEnd)) :- %match
         lte(FirstStart,SecondStart),
         lte(SecondStart,FirstStart),
         FirstEnd\==SecondStart.
 
+meetCheck(FirstFreeTime,SecondFreeTime,SharedSlot) :-
+        overlap(FirstFreeTime,SecondFreeTime,SharedSlot)
 
-compareNext([], FreeTime, FreeTime). % list with free times
+
+compareNext([], FreeTime, FreeTime). % meetcollect
 compareNext([H|Tail], FirstFreeTime, FreeTime) :- % args are FreeTimes
         free(H, SecondFreeTime), % Next person's free time
         overlap(FirstFreeTime,SecondFreeTime, CurrentSlot), % check if free times have overlap
         compareNext(Tail, CurrentSlot, FreeTime). % Pass rest of the list with recursion
 
 
-getFreeTimes([H|Tail], FreeTime) :-
+getFreeTimes([H|Tail], FreeTime) :- %meetTimes
         free(H, FirstFreeTime),
         compareNext(Tail, FirstFreeTime, FreeTime).
 
 
-collection(FreeTime) :-
+collection(FreeTime) :-   % meet
         people(People),
         getFreeTimes(People, FreeTime).
 
