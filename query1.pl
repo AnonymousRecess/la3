@@ -17,11 +17,13 @@ lte(time(Hour,Min1,ID), time(Hour, Min2, ID)) :-
 match(slot(ABegin,AEnd),slot(BBegin,BEnd),slot(BBegin,BEnd)) :-
     lte(ABegin,BBegin),
     lte(BBegin, AEnd),
+    lte(BEnd,AEnd),
     BBegin\==BEnd.
 
 
 match(slot(ABegin,AEnd),slot(BBegin,BEnd),slot(BBegin,BEnd)) :-
     lte(ABegin,BBegin),
+    lte(AEnd,BEnd),
     lte(AEnd,BEnd),
     BBegin\==AEnd.
 
