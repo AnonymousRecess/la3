@@ -22,10 +22,12 @@ meetCheck(ASlot,BSlot,SharedSlot) :-
 
 meetCollect([],Slot,Slot).
 meetCollect([B|Tail],ASlot,Slot) :-
+    free(B,BSlot),
     meetCheck(ASlot,BSlot,Slot0),
     meetCollect(Tail,Slot0,Slot).
 
 meetTimes([A|Tail], Slot) :-
+    free(A,ASlot),
     meetCollect(Tail,ASlot,Slot).
 
 meet(Slot) :-
