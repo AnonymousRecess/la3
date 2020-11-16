@@ -41,8 +41,7 @@ collection(FreeTime) :-   % meet
 people([ann, bob, dave]).
 
 
-main :- findall(FreeTime, 
-        collection(FreeTime), FreeTimes),
+main :- findall(FreeTime, collection(FreeTime), FreeTimes),
         uniq(FreeTimes, Uniq),
         write(Uniq), nl, halt.        
 
