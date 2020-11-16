@@ -38,6 +38,6 @@ people([ann,bob,dave]).
 
 main :- findall(Slot, meet(Slot), Slots),
         uniq(Slots, Uniq),
-        write(People), nl, halt.
+        write(Uniq), nl, halt.
 
 :- initialization(main).
