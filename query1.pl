@@ -17,15 +17,10 @@ lte(time(Hour,Min1,ID), time(Hour, Min2, ID)) :-
 match(slot(ABegin,AEnd),slot(BBegin,BEnd),slot(BBegin,BEnd)) :-
     lte(ABegin,BBegin),
     lte(BBegin, AEnd),
+    lte(AEnd,BEnd),
     lte(BEnd,AEnd),
+    BBegin\==AEnd,
     ABegin\==BEnd.
-
-
-match(slot(ABegin,AEnd),slot(BBegin,BEnd),slot(BBegin,BEnd)) :-
-    lte(ABegin,BBegin),
-    lte(AEnd,BEnd),
-    lte(AEnd,BEnd),
-    BBegin\==AEnd.
 
 meetCheck(ASlot,BSlot,SharedSlot) :-
     match(ASlot,BSlot,SharedSlot).
