@@ -21,11 +21,11 @@ match(slot(ABegin,AEnd),slot(BBegin,BEnd),slot(BBegin,BEnd)) :-
     ABegin\==BEnd.
 
 
-% match(slot(ABegin,AEnd),slot(BBegin,BEnd),slot(BBegin,BEnd)) :-
-%     lte(ABegin,BBegin),
-%     lte(AEnd,BEnd),
-%     lte(AEnd,BEnd),
-%     BBegin\==AEnd.
+match(slot(ABegin,AEnd),slot(BBegin,BEnd),slot(BBegin,BEnd)) :-
+    lte(ABegin,BBegin),
+    lte(AEnd,BEnd),
+    lte(AEnd,BEnd),
+    BBegin\==AEnd.
 
 meetCheck(ASlot,BSlot,SharedSlot) :-
     match(ASlot,BSlot,SharedSlot).
