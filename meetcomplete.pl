@@ -18,8 +18,14 @@ overlap(slot(FirstStart,FirstEnd),slot(SecondStart,SecondEnd),slot(SecondStart,S
         lte(SecondEnd,FirstEnd),
         FirstStart\==SecondEnd.
 
+
+
 meetCheck(FirstFreeTime,SecondFreeTime,SharedSlot) :-
         overlap(FirstFreeTime,SecondFreeTime,SharedSlot).
+
+meetCheck(FirstFreeTime,SecondFreeTime,SharedSlot) :-
+        overlap(SecondFreeTime,FirstFreeTime,SharedSlot).
+
 
 
 compareNext([], FreeTime, FreeTime). % meetcollect
