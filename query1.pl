@@ -25,6 +25,9 @@ match(slot(ABegin,AEnd),slot(BBegin,BEnd),slot(BBegin,BEnd)) :-
 meetCheck(ASlot,BSlot,SharedSlot) :-
     match(ASlot,BSlot,SharedSlot).
 
+meetCheck(ASlot,BSlot,SharedSlot) :-
+    match(BSlot,ASlot,SharedSlot).
+
 meetCollect([],Slot,Slot).
 meetCollect([B|Tail],ASlot,Slot) :-
     free(B,BSlot),

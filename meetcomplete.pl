@@ -17,15 +17,10 @@ lte(time(Hour,Min1,ID), time(Hour, Min2, ID)) :-
 overlap(slot(FirstStart,FirstEnd),slot(SecondStart,SecondEnd),slot(SecondStart,SecondEnd)) :- %match
         lte(FirstStart,SecondStart),
         lte(SecondStart,FirstEnd),
+        lte(FirstEnd,SecondEnd),
         lte(SecondEnd,FirstEnd),
+        SecondEnd\=FirstEnd,
         FirstStart\==SecondEnd.
-
-
-
-
-
-
-
 
 meetCheck(FirstFreeTime,SecondFreeTime,SharedSlot) :-
         overlap(FirstFreeTime,SecondFreeTime,SharedSlot).
