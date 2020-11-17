@@ -45,7 +45,7 @@ collection(FreeTime) :-
         people(People),
         getFreeTimes(People, FreeTime).
 
-people([ann, bob, dave]).
+people([ann, bob, carla]).
 
 main :- findall(FreeTime, collection(FreeTime), FreeTimes),
         uniq(FreeTimes, Uniq),
