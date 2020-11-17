@@ -3,7 +3,6 @@
 
 
 
-free(Person,slot(time(hour1,min1,id1),time(hour2,min1,id2))). 
 
 lte(time(_,_,am), time(_,_,pm)).
 
