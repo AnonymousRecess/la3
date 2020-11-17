@@ -19,7 +19,7 @@ overlap(slot(FirstStart,FirstEnd),slot(SecondStart,SecondEnd),slot(SecondStart,S
         lte(SecondStart,FirstEnd),
         lte(FirstEnd,SecondEnd),
         lte(SecondEnd,FirstEnd),
-        SecondEnd\=FirstEnd,
+        SecondStart=FirstEnd,
         FirstStart\==SecondEnd.
 
 meetCheck(FirstFreeTime,SecondFreeTime,SharedSlot) :-
