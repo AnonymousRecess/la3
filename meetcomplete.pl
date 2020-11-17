@@ -22,6 +22,14 @@ overlap(slot(FirstStart,FirstEnd),slot(SecondStart,SecondEnd),slot(SecondStart,S
         SecondStart\==FirstEnd,
         FirstStart\==SecondEnd.
 
+overlap(slot(FirstStart,FirstEnd),slot(SecondStart,SecondEnd),slot(SecondStart,FirstEnd)) :- 
+        lte(FirstStart,SecondStart),
+        lte(SecondStart,FirstEnd),
+        lte(FirstEnd,SecondEnd),
+        lte(SecondEnd,FirstEnd),
+        SecondStart\==FirstEnd,
+        FirstStart\==SecondEnd.
+
 meetCheck(FirstFreeTime,SecondFreeTime,SharedSlot) :-
         overlap(FirstFreeTime,SecondFreeTime,SharedSlot).
 
